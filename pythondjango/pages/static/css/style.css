@@ -1,0 +1,40 @@
+body{
+	font-family: Verdana, Arial, sans-serif;
+	background-color: rgb(156,157,158);
+	margin:0px;
+	font-size: 14px;
+}
+
+header{
+	text-align: center;
+	font-size: 15px;
+	color: white;
+	background-color: #111;
+	padding: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+	border-radius: 10px;
+}
+
+.main {
+	background-color: rgb(225,225,198);
+	border-radius: 5px;
+	padding: 20px;
+	font-size: 110%;
+  margin-bottom: 20px;
+}
+
+h1{
+  color: white;
+  text-align: center;
+  border-radius: 30px;
+  background-color: #800;
+  padding: 10px;
+  font-size: 40px;
+}
+
+#cytat{
+  padding: 10px;
+  text-align: center;
+  font-style: italic;
+}
