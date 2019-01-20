@@ -3,15 +3,15 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import aseegg as ag
 
-dane = pd.read_csv(r"C:\Users\jpalu\Desktop\sub1trial10.csv", delimiter=',', engine='python')
-sygnal = dane['kolumna2']
+dane=pd.read_csv(r"C:\Users\jpalu\Desktop\sub1trial10.csv", delimiter=',', engine='python')
+sygnal=dane['kolumna2']
 wyswietlane=dane['kolumna6']
 
 t = np.linspace(0,37.89,200*37.89)
 probkowanie=200
 czestOdciecia1=49
 czestOdciecia2=51
-przefiltrowany = ag.pasmowozaporowy(sygnal, probkowanie, czestOdciecia1,czestOdciecia2)
+przefiltrowany=ag.pasmowozaporowy(sygnal, probkowanie, czestOdciecia1,czestOdciecia2)
 
 przepust1=1
 przepust2=50
@@ -78,13 +78,11 @@ plt.xlabel('Czas [s]')
 plt.ylabel('Cyfra')
 plt.show()'''
 
-max=0
+#algorytm
 info=[]
 for i in range(len(przepuszczony)):
-    if przepuszczony[i]>0.06:
-        max = przepuszczony[i]
-        if max < przepuszczony[i+1]:
-            max = przepuszczony[i+1]
-            info.append(wyswietlane[i])
-print(info)
-print('Zdekodowana informacja dla sygnału sub1trial10: 3 3 4 1 3 5 2 4 1 3 4 1 3 5')
+    if przepuszczony[i]>=0.1 and przepuszczony[i-1]<0.1:
+        przepuszczony[i-1]=i
+        przepuszczony[i]=przepuszczony[i+1]
+        info.append(wyswietlane[i])
+print('Zdekodowana informacja dla sygnału sub1trial10:',info)
